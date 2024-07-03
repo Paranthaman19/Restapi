@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class UserResources {
        private UserDaoService service;
@@ -16,7 +18,7 @@ public class UserResources {
 	   public UserResources(UserDaoService service) {
 	   this.service =service;
 	   }
-	   @GetMapping("/user")
+	   @GetMapping("/users")
 	   public List<User> retrieveAllUsers(){
 		     return service.findAll();
 		     }
@@ -33,7 +35,7 @@ public class UserResources {
 		     
 		     }
        @PostMapping("/user")
-       public void createUsers(@RequestBody User user ) {
+       public void createUsers(@Valid @RequestBody User user ) {
     	   service.save(user);
        }
        

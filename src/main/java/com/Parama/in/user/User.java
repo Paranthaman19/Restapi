@@ -2,7 +2,11 @@ package com.Parama.in.user;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
+
 public class User {
+
  public Integer id;
 public User(Integer id, String name, LocalDate birthdate) {
 	super();
@@ -10,7 +14,9 @@ public User(Integer id, String name, LocalDate birthdate) {
 	this.name = name;
 	this.birthdate = birthdate;
 }
+@Size(min=2)
 public String name;
+@Past
  public LocalDate birthdate;
 public Integer getId() {
 	return id;
