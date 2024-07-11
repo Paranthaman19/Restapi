@@ -1,14 +1,16 @@
 package com.Parama.in.filtering;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties("field1")
+@JsonFilter("SomeBeanFilter")
 public class SomeBean {
      private String field1;
      @JsonIgnore
      private String field2;
-     @JsonProperty("F3")
+     //@JsonProperty("F3")--->used for naming
      private String field3;
 	public SomeBean(String field1, String field2, String field3) {
 		super();
