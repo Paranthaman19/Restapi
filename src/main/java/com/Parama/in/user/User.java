@@ -2,6 +2,8 @@ package com.Parama.in.user;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -15,8 +17,10 @@ public User(Integer id, String name, LocalDate birthdate) {
 	this.birthdate = birthdate;
 }
 @Size(min=2)
+@JsonProperty("user_name")
 public String name;
 @Past
+@JsonProperty("Birth_Date")
  public LocalDate birthdate;
 public Integer getId() {
 	return id;
